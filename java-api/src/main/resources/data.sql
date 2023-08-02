@@ -25,6 +25,6 @@ INSERT into book(book_name)(
     SELECT book_name FROM total
 );
 
---INSERT into book_user(book_id, user_id)(
---    SELECT book_id, user_id FROM users
---);
+INSERT into book_user(book_id, users_id)(
+   SELECT book.id, users.id FROM book,users
+);

@@ -8,7 +8,7 @@ DROP TABLE IF EXISTS dogs;
 DROP TABLE IF EXISTS total;
 
 CREATE TABLE total AS SELECT * FROM CSVREAD
-    ('java-api/src/main/resources/other/db-bonds-data.csv');
+    ('src/main/resources/other/db-bonds-data.csv');
 
 CREATE TABLE users(
     id long AUTO_INCREMENT PRIMARY KEY,
@@ -39,6 +39,12 @@ CREATE TABLE counter_party (
        bond_holder VARCHAR(250) NOT NULL
 );
 
+CREATE TABLE book(
+         id long AUTO_INCREMENT PRIMARY KEY,
+         book_name VARCHAR(250)
+    -- put trade id in here as foreign key
+);
+
 CREATE TABLE trade(
       id long AUTO_INCREMENT PRIMARY KEY,
       trade_type VARCHAR(50),
@@ -49,19 +55,15 @@ CREATE TABLE trade(
       trade_date VARCHAR(250),
       security_id LONG,
       counter_party_id LONG,
+      book VARCHAR(250),
       FOREIGN KEY (security_id) REFERENCES security(id),
-      FOREIGN KEY (counter_party_id) REFERENCES counter_party(id)
+      FOREIGN KEY (counter_party_id) REFERENCES counter_party(id),
+      FOREIGN KEY (book) REFERENCES book(id)
 -- unit price maybe here
 -- counter_party_id
 );
 
-CREATE TABLE book(
-    id long AUTO_INCREMENT PRIMARY KEY,
-    book_name VARCHAR(250) NOT NULL,
-    trade_id LONG,
-    FOREIGN KEY (trade_id) REFERENCES trade(id)
-    -- put trade id in here as foreign key
-);
+
 
 
 CREATE TABLE book_user (
