@@ -5,9 +5,10 @@ DROP TABLE IF EXISTS security;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS counter_party;
 DROP TABLE IF EXISTS dogs;
+DROP TABLE IF EXISTS total;
 
 CREATE TABLE total AS SELECT * FROM CSVREAD
-    ('other/db-bonds-data.csv');
+    ('src/main/resources/other/db-bonds-data.csv');
 
 CREATE TABLE users(
     id long AUTO_INCREMENT PRIMARY KEY,

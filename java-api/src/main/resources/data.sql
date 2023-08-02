@@ -11,5 +11,5 @@ insert into users(name, email, password) values (
 
 -- insert into counter_party(bond_holder)(
 --     select bond_holder FROM total where rownum > 1
-);
+-- );
 
