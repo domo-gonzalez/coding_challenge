@@ -6,8 +6,8 @@ DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS counter_party;
 DROP TABLE IF EXISTS dogs;
 
-create table total as select * from CSVREAD
-    ('/Users/DomingoGonzalez/db_workspace/coding_challenge/java-api/src/main/resources/other/db-bonds-data.csv');
+CREATE TABLE total AS SELECT * FROM CSVREAD
+    ('other/db-bonds-data.csv');
 
 CREATE TABLE users(
     id long AUTO_INCREMENT PRIMARY KEY,
