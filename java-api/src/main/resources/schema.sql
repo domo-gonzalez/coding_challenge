@@ -8,7 +8,7 @@ DROP TABLE IF EXISTS dogs;
 DROP TABLE IF EXISTS total;
 
 CREATE TABLE total AS SELECT * FROM CSVREAD
-    ('src/main/resources/other/db-bonds-data.csv');
+    ('java-api/src/main/resources/other/db-bonds-data.csv');
 
 CREATE TABLE users(
     id long AUTO_INCREMENT PRIMARY KEY,

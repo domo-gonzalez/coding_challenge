@@ -9,7 +9,20 @@ insert into users(name, email, password) values (
 -- );
 
 
--- insert into counter_party(bond_holder)(
---     select bond_holder FROM total where rownum > 1
--- );
+ insert into counter_party(bond_holder)(
+     select bond_holder FROM total
+ );
 
+INSERT into trade (trade_type, trade_currency, quantity, trade_settlement_date,
+                       trade_status, trade_date)(
+    SELECT trade_type, trade_currency, quantity, trade_settlement_date,
+    trade_status, trade_date FROM total
+);
+
+INSERT into book(book_name)(
+    SELECT book_name FROM total
+);
+
+--INSERT into book_user(book_id, user_id)(
+--    SELECT book_id, user_id FROM users
+--);
