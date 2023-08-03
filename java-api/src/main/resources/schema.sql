@@ -7,8 +7,7 @@ DROP TABLE IF EXISTS counter_party;
 DROP TABLE IF EXISTS dogs;
 DROP TABLE IF EXISTS total;
 
-CREATE TABLE total AS SELECT * FROM CSVREAD
-    ('src/main/resources/other/db-bonds-data.csv');
+CREATE TABLE total AS SELECT * FROM CSVREAD ('java-api/src/main/resources/other/db-bonds-data.csv');
 
 CREATE TABLE users(
     id long AUTO_INCREMENT PRIMARY KEY,
@@ -58,10 +57,10 @@ CREATE TABLE trade(
       security_id LONG,
       counter_party VARCHAR(100),
 --       counter_party_id LONG,
-      book_id long,
+      book_name VARCHAR(100)
 --       FOREIGN KEY (security_id) REFERENCES security(id),
 --       FOREIGN KEY (counter_party_id) REFERENCES counter_party(id),
-      FOREIGN KEY (book_id) REFERENCES book(id)
+--      FOREIGN KEY (book_id) REFERENCES book(id)
 -- unit price maybe here
 -- counter_party_id
 );

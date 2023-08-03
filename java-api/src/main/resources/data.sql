@@ -19,11 +19,19 @@ INSERT into book(book_name)(
     SELECT DISTINCT LOWER(book_name) FROM total
 );
 
-INSERT into trade (trade_type, trade_currency, quantity, unit_price, trade_settlement_date,
-                       trade_status, trade_date, book_id)(
-    SELECT trade_type, trade_currency, quantity, unit_price, trade_settlement_date,
-    trade_status, trade_date, book.id FROM total,book
-);
+--INSERT into trade (trade_type, trade_currency, quantity, unit_price, trade_settlement_date,
+--                       trade_status, trade_date)(
+--    SELECT trade_type, trade_currency, quantity, unit_price, trade_settlement_date,
+--    trade_status, trade_date FROM total
+--);
+INSERT INTO trade (trade_type, trade_currency, quantity, unit_price, trade_settlement_date,
+trade_status, trade_date, book_name)
+SELECT t.trade_type, t.trade_currency, t.quantity, t.unit_price, t.trade_settlement_date,
+t.trade_status, t.trade_date, b.book_name
+FROM total t
+LEFT OUTER JOIN book b ON lower(t.book_name) = b.book_name;
+
+
 
 
 INSERT into book_user(book_id, users_id)(
