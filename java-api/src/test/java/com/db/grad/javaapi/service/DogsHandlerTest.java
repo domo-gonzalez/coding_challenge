@@ -36,7 +36,8 @@ public class DogsHandlerTest
         Mockito.when(itsDogsRepo.save(theDog)).thenReturn(theDog);
         Mockito.when(itsDogsRepo.count()).thenReturn(1L);
         cut.addDog( theDog );
-
+        System.out.println(theDog);
+        System.out.println(cut.getNoOfDogs());
         int expectedResult = 1;
 
         // act
