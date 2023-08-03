@@ -14,15 +14,16 @@ CREATE TABLE users(
     id long AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(250) NOT NULL,
     email VARCHAR(250) NOT NULL,
-    password VARCHAR(250) NOT NULL
+    password VARCHAR(250) NOT NULL,
+    role VARCHAR(50) NOT NULL
 );
 
 
 create TABLE security(
      id long AUTO_INCREMENT PRIMARY KEY,
-     unit_price DOUBLE,
      coupon_percent DOUBLE,
--- might need constraints on coupon_percent
+    -- might need to add book here
+    -- might need constraints on coupon_percent
      bond_currency VARCHAR(50),
      cusip VARCHAR(250),
      face_value_mn int,
@@ -50,15 +51,17 @@ CREATE TABLE trade(
       trade_type VARCHAR(50),
       trade_currency VARCHAR(50),
       quantity int,
+      unit_price DOUBLE NOT NULL,
       trade_settlement_date VARCHAR(250),
       trade_status VARCHAR(250),
       trade_date VARCHAR(250),
       security_id LONG,
-      counter_party_id LONG,
-      book VARCHAR(250),
-      FOREIGN KEY (security_id) REFERENCES security(id),
-      FOREIGN KEY (counter_party_id) REFERENCES counter_party(id),
-      FOREIGN KEY (book) REFERENCES book(id)
+      counter_party VARCHAR(100),
+--       counter_party_id LONG,
+      book_id long,
+--       FOREIGN KEY (security_id) REFERENCES security(id),
+--       FOREIGN KEY (counter_party_id) REFERENCES counter_party(id),
+      FOREIGN KEY (book_id) REFERENCES book(id)
 -- unit price maybe here
 -- counter_party_id
 );
@@ -67,11 +70,11 @@ CREATE TABLE trade(
 
 
 CREATE TABLE book_user (
-   id long AUTO_INCREMENT PRIMARY KEY,
    users_id long NOT NULL,
    book_id long NOT NULL,
    FOREIGN KEY (users_id) REFERENCES users(id),
-   FOREIGN KEY (book_id) REFERENCES book(id)
+   FOREIGN KEY (book_id) REFERENCES book(id),
+    PRIMARY KEY (users_id, book_id)
 );
 
 
