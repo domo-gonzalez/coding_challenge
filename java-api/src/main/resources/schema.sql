@@ -54,7 +54,7 @@ CREATE TABLE trade(
       trade_settlement_date VARCHAR(250),
       trade_status VARCHAR(250),
       trade_date VARCHAR(250),
-      security_id LONG,
+--       security_id LONG,
       counter_party VARCHAR(100),
 --       counter_party_id LONG,
       book_name VARCHAR(100)

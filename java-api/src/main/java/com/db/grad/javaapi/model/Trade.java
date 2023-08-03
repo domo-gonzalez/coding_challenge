@@ -32,8 +32,8 @@ public class Trade {
     @Column(name = "trade_date")
     private String tradeDate;
 
-    @Column(name = "security_id")
-    private long securityId;
+//    @Column(name = "security_id")
+//    private long securityId;
 
     @Column(name = "counter_party")
     private String counterParty;
@@ -106,13 +106,13 @@ public class Trade {
         this.tradeDate = tradeDate;
     }
 
-    public long getSecurityId() {
-        return securityId;
-    }
-
-    public void setSecurityId(long securityId) {
-        this.securityId = securityId;
-    }
+//    public long getSecurityId() {
+//        return securityId;
+//    }
+//
+//    public void setSecurityId(long securityId) {
+//        this.securityId = securityId;
+//    }
 
     public String getCounterParty() {
         return counterParty;
@@ -141,7 +141,7 @@ public class Trade {
                 ", tradeSettlementDate='" + tradeSettlementDate + '\'' +
                 ", tradeStatus='" + tradeStatus + '\'' +
                 ", tradeDate='" + tradeDate + '\'' +
-                ", securityId=" + securityId +
+//                ", securityId=" + securityId +
                 ", counterParty='" + counterParty + '\'' +
                 ", bookName='" + bookName + '\'' +
                 '}';
