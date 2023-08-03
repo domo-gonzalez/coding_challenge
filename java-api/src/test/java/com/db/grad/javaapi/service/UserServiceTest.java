@@ -26,7 +26,7 @@ public class UserServiceTest {
     private UserService cut;
 
     @Test
-    public  void    add_a_user_return_number_of_user_in_repo_is_two()
+    public  void    add_a_security_return_number_of_security_in_repo_is_two()
     {
         // arrange
         User user = new User();
