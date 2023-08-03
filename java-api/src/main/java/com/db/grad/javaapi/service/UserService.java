@@ -27,6 +27,16 @@ public class UserService{
 
     public List<User> getAllUsers() {return userRepository.findAll();}
 
+    public User getUserById(long id)
+    {
+        return userRepository.findById(id).get();
+    }
+
+    public List<User> getUserByName(String name)
+    {
+        return userRepository.findByName(name);
+    }
+
     public User updateUserDetails(User userToUpdate)
     {
         return userRepository.save( userToUpdate );
