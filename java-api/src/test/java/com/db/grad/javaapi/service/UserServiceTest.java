@@ -73,7 +73,6 @@ public class UserServiceTest {
         User userToUpdate = theUser;
         String dogToFind = "Tyrone";
         theUser = new User();
-        theUser = new User();
         theUser.setName("Christine");
         theUser.setEmail("christine@db.com");
         theUser.setPassword("tortilla");
