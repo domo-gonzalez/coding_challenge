@@ -28,7 +28,7 @@ public class SecurityController {
         return service.addSecurity(security);
     }
 
-    @GetMapping("/Security")
+    @GetMapping("/security")
     public List<Security> getAllSecurity() {return service.getAllSecurity();}
 
     @PutMapping("/security/{id}")
