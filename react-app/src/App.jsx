@@ -1,8 +1,11 @@
 import React from "react";
-import { Pets } from "./components/pets/Pets";
+// import { Pets } from "./components/pets/Pets";
 
 const App = () => {
-  return <Pets />;
+  <div className="App">
+         Hello World !
+      </div>
+  console.log("Hello World");
 };
 
 export default App;
