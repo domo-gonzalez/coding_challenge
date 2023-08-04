@@ -1,7 +1,7 @@
 package com.db.grad.javaapi.service;
 
 
-import com.db.grad.javaapi.model.Dog;
+//import com.db.grad.javaapi.model.Dog;
 import com.db.grad.javaapi.model.User;
 import com.db.grad.javaapi.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +26,16 @@ public class UserService{
     }
 
     public List<User> getAllUsers() {return userRepository.findAll();}
+
+    public User getUserById(long id)
+    {
+        return userRepository.findById(id).get();
+    }
+
+    public List<User> getUserByName(String name)
+    {
+        return userRepository.findByName(name);
+    }
 
     public User updateUserDetails(User userToUpdate)
     {

@@ -1,13 +1,14 @@
 package com.db.grad.javaapi.controller;
 
 import com.db.grad.javaapi.exception.ResourceNotFoundException;
-import com.db.grad.javaapi.model.Dog;
+//import com.db.grad.javaapi.model.Dog;
 import com.db.grad.javaapi.model.User;
-import com.db.grad.javaapi.service.DogHandler;
+//import com.db.grad.javaapi.service.DogHandler;
 import com.db.grad.javaapi.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 
 import javax.validation.Valid;
 import java.util.HashMap;
@@ -32,6 +33,18 @@ public class UserController {
 
     @GetMapping("/users")
     public List<User> getAllUsers() {return service.getAllUsers();}
+
+    @GetMapping("/users/{id}")
+    public ResponseEntity < User > getUserById(@PathVariable(value = "id") Long id)
+            throws ResourceNotFoundException {
+        User user = service.getUserById(id);
+        return ResponseEntity.ok().body(user);
+    }
+
+    @GetMapping("/users-by-name/{name}")
+    public List<User> getUserByName(@PathVariable(value = "name") String name) {
+        return service.getUserByName(name);
+    }
 
     @PutMapping("/users/{id}")
     public ResponseEntity< User > updateUser(@PathVariable(value = "id") Long id,
