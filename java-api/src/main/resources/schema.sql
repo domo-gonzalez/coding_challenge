@@ -49,6 +49,7 @@ CREATE TABLE book(
 
 CREATE TABLE trade(
       id long AUTO_INCREMENT PRIMARY KEY,
+      isin VARCHAR(250),
       trade_type VARCHAR(50),
       trade_currency VARCHAR(50),
       quantity int,

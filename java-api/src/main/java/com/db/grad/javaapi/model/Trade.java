@@ -11,6 +11,9 @@ public class Trade {
     @Id
     private long id;
 
+    @Column(name = "isin")
+    private String isin;
+
     @Column(name = "trade_type")
     private String tradeType;
 
@@ -48,6 +51,14 @@ public class Trade {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getIsin() {
+        return isin;
+    }
+
+    public void setIsin(String isin) {
+        this.isin = isin;
     }
 
     public String getTradeType() {
@@ -134,6 +145,7 @@ public class Trade {
     public String toString() {
         return "Trade{" +
                 "id=" + id +
+                ", isin='" + isin + '\'' +
                 ", tradeType='" + tradeType + '\'' +
                 ", tradeCurrency='" + tradeCurrency + '\'' +
                 ", quantity=" + quantity +
