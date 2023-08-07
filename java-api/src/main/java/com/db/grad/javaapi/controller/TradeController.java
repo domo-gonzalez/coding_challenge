@@ -3,6 +3,7 @@ package com.db.grad.javaapi.controller;
 import com.db.grad.javaapi.exception.ResourceNotFoundException;
 import com.db.grad.javaapi.model.Trade;
 import com.db.grad.javaapi.service.TradeService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -35,9 +36,9 @@ public class TradeController {
 //        return ResponseEntity.ok().body(trade);
     }
 //new
-    @GetMapping("/tradebydate/{tradeBySettlementDate}")
-    public List< Trade > getTradeBySettlementDate(@PathVariable(value = "tradeSettlementDate") String tradeSettlementDate){
-//        throws ResourceNotFoundException {
+    @GetMapping("/tradebydate/{tradeSettlementDate}")
+    public List< Trade > getTradeBySettlementDate(@PathVariable(value = "tradeSettlementDate") String tradeSettlementDate)
+        throws ResourceNotFoundException {
             return service.getTradeBySettlementDate(tradeSettlementDate);
         }
 

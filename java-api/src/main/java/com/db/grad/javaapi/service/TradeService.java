@@ -36,13 +36,15 @@ public class TradeService {
     {
 //        Trade dateToFind = new Trade();
 //        dateToFind.setTradeSettlementDate(date);
-//        List<Trade> dates = tradeRepository.findBySettlementDate(dateToFind);
-//        Trade result = null;
+//        List<Trade> dates = tradeRepository.findBySettlementDate(date);
+//        List<Trade> result = null;
 //
-//        if( dates.size() == 1)
-//            result = dates.get(0);
-//
-//        return result;
+//        if( dates.size() < 1) {
+////            result = dates.get(0)
+//            return result;
+//        }
+
+//        return dates;
         return tradeRepository.findBySettlementDate(date);
     }
 
