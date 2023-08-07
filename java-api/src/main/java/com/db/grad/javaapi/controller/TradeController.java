@@ -39,6 +39,7 @@ public class TradeController {
     @GetMapping("/tradebydate/{tradeSettlementDate}")
     public ResponseEntity<List<Trade>> getTradeBySettlementDate(@PathVariable(value = "tradeSettlementDate") String tradeSettlementDate)
         throws ResourceNotFoundException {
+        tradeSettlementDate = tradeSettlementDate.replaceAll("-", "/");
         List <Trade> settle = service.getTradeBySettlementDate(tradeSettlementDate);
         System.out.println("print settle: "+settle.toString());
             return ResponseEntity.ok().body(settle);

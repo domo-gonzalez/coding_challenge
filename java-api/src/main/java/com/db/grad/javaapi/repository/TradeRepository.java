@@ -12,7 +12,7 @@ import java.util.Map;
 @Repository
 public interface TradeRepository extends JpaRepository<Trade, Long> {
 //    Map<Object, Object> findBySettlementDate();
-@Query(nativeQuery = true, value = "select * from trade t where t.trade_settlement_date like %:tradeSettlementDate% escape '/'")
+@Query(nativeQuery = true, value = "select * from trade t where t.trade_settlement_date like %:tradeSettlementDate%")
 List<Trade> findBySettlementDate( @Param("tradeSettlementDate") String tradeSettlementDate);
     //
 //@Query(nativeQuery = true, value = "select * from dogs where name = :name")

@@ -45,6 +45,7 @@ public class TradeService {
 //        }
 
 //        return dates;
+
         return tradeRepository.findBySettlementDate(date);
     }
 
