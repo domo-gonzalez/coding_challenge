@@ -2,7 +2,6 @@ package com.db.grad.javaapi.controller;
 
 import com.db.grad.javaapi.exception.ResourceNotFoundException;
 import com.db.grad.javaapi.model.Trade;
-import com.db.grad.javaapi.model.User;
 import com.db.grad.javaapi.service.TradeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -30,13 +29,13 @@ public class TradeController {
     public List<Trade> getAllTrades() {return service.getAllTrades();}
 
     @GetMapping("/trade/{id}")
-    public ResponseEntity< Trade > getTradeById(@PathVariable(value = "id") Long id)
-            throws ResourceNotFoundException {
-        Trade trade = service.getTradeById(id);
-        return ResponseEntity.ok().body(trade);
+    public Trade getTradeById(@PathVariable(value = "id") Long id){
+//            throws ResourceNotFoundException {
+        return service.getTradeById(id);
+//        return ResponseEntity.ok().body(trade);
     }
 //new
-    @GetMapping("/trade/{tradeBySettlementDate}")
+    @GetMapping("/tradebydate/{tradeBySettlementDate}")
     public List< Trade > getTradeBySettlementDate(@PathVariable(value = "tradeSettlementDate") String tradeSettlementDate){
 //        throws ResourceNotFoundException {
             return service.getTradeBySettlementDate(tradeSettlementDate);
