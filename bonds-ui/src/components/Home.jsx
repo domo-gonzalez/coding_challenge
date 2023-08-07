@@ -34,18 +34,23 @@ const Home = () => {
   
 
   const [userData, setUserData] = useState(null);
-useEffect(() => {
+/*useEffect(() => {
   const fetchData = async()=>{
     try{
-    const response = await axios.get('http://localhost:8080/trade');
+    const response = await axios.get('http://localhost:8080/trade/tradebydate/04-08-2021');
     setUserData(response.data);
     }catch(error){
       console.error("Error fetching data:", error);
     }
   };
   fetchData();
-},[]);
-
+},[]);*/
+useEffect(() => {
+  fetch('http://localhost:8080/trade/1')
+  // console.log(fetch('http://localhost:8080/trade'))
+  .then(result => result.json('tradeSettlementDate'))
+  .then(userData => setUserData(userData))
+}, []);
   return (
     <Row xs={1} md ={2} className="g-4">
       {Array.from({length:5}).map((_,idx)=>(
@@ -56,11 +61,12 @@ useEffect(() => {
               {{color:'white',
               fontSize:'21px'}}>
                 {idx}
+                
               </text>
             </div>
             <Card.Body>
               
-              <Card.Title >it's {idx}</Card.Title>
+              <Card.Title >{console.log(userData)}</Card.Title>
               
               <Card.Text>some info about bonds</Card.Text>
             </Card.Body>
