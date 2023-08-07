@@ -35,6 +35,16 @@ public class TradeController {
         Trade trade = service.getTradeById(id);
         return ResponseEntity.ok().body(trade);
     }
+//new
+    @GetMapping("/trade/{tradeBySettlementDate}")
+    public List< Trade > getTradeBySettlementDate(@PathVariable(value = "tradeSettlementDate") String tradeSettlementDate)
+    {
+        return service.getTradeBySettlementDate(tradeSettlementDate);
+    }
+
+
+//        Trade trade = service.getTradeBySettlementDate(tradeSettlementDate);
+//        return ResponseEntity.ok().body(trade);
 
     @PutMapping("/trade/{id}")
     public ResponseEntity< Trade > updateTrade(@PathVariable(value = "id") Long id,
