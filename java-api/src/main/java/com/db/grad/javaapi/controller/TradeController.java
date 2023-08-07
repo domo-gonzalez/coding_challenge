@@ -12,7 +12,7 @@ import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+//This is the right domo-raj
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
 public class TradeController {
@@ -37,10 +37,11 @@ public class TradeController {
     }
 //new
     @GetMapping("/trade/{tradeBySettlementDate}")
-    public List< Trade > getTradeBySettlementDate(@PathVariable(value = "tradeSettlementDate") String tradeSettlementDate)
-    {
-        return service.getTradeBySettlementDate(tradeSettlementDate);
-    }
+    public List< Trade > getTradeBySettlementDate(@PathVariable(value = "tradeSettlementDate") String tradeSettlementDate){
+//        throws ResourceNotFoundException {
+            return service.getTradeBySettlementDate(tradeSettlementDate);
+        }
+
 
 
 //        Trade trade = service.getTradeBySettlementDate(tradeSettlementDate);
