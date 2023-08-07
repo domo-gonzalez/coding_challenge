@@ -9,7 +9,7 @@ const Home = () => {
   const currentDate = new Date();
   const formattedDate = currentDate.toDateString();
 
-  const dueDateStr = '08/30/2023';
+  const dueDateStr = '08/07/2023';
   const dueDateParts = dueDateStr.split('/');
   const dueDate = new Date(dueDateParts[2], dueDateParts[0]-1, dueDateParts[1]);
   const formattedDueDate = dueDate.toDateString();
