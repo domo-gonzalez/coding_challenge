@@ -2,7 +2,6 @@ package com.db.grad.javaapi.service;
 
 
 import com.db.grad.javaapi.model.Trade;
-import com.db.grad.javaapi.model.User;
 import com.db.grad.javaapi.repository.TradeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,6 +30,26 @@ public class TradeService {
     {
         return tradeRepository.findById(id).get();
     }
+
+
+    public List<Trade> getTradeBySettlementDate(String date)
+    {
+//        Trade dateToFind = new Trade();
+//        dateToFind.setTradeSettlementDate(date);
+//        List<Trade> dates = tradeRepository.findBySettlementDate(date);
+//        List<Trade> result = null;
+//
+//        if( dates.size() < 1) {
+////            result = dates.get(0)
+//            return result;
+//        }
+
+//        return dates;
+
+        return tradeRepository.findBySettlementDate(date);
+    }
+
+
 
     public Trade updateTradeDetails(Trade tradeToUpdate)
     {

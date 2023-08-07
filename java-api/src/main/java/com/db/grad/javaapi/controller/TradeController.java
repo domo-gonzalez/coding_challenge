@@ -2,8 +2,8 @@ package com.db.grad.javaapi.controller;
 
 import com.db.grad.javaapi.exception.ResourceNotFoundException;
 import com.db.grad.javaapi.model.Trade;
-import com.db.grad.javaapi.model.User;
 import com.db.grad.javaapi.service.TradeService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +12,7 @@ import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+//This is the right domo-raj
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
 public class TradeController {
@@ -30,11 +30,25 @@ public class TradeController {
     public List<Trade> getAllTrades() {return service.getAllTrades();}
 
     @GetMapping("/trade/{id}")
-    public ResponseEntity< Trade > getTradeById(@PathVariable(value = "id") Long id)
-            throws ResourceNotFoundException {
-        Trade trade = service.getTradeById(id);
-        return ResponseEntity.ok().body(trade);
+    public Trade getTradeById(@PathVariable(value = "id") Long id){
+//            throws ResourceNotFoundException {
+        return service.getTradeById(id);
+//        return ResponseEntity.ok().body(trade);
     }
+//new
+    @GetMapping("/tradebydate/{tradeSettlementDate}")
+    public ResponseEntity<List<Trade>> getTradeBySettlementDate(@PathVariable(value = "tradeSettlementDate") String tradeSettlementDate)
+        throws ResourceNotFoundException {
+        tradeSettlementDate = tradeSettlementDate.replaceAll("-", "/");
+        List <Trade> settle = service.getTradeBySettlementDate(tradeSettlementDate);
+        System.out.println("print settle: "+settle.toString());
+            return ResponseEntity.ok().body(settle);
+        }
+
+
+
+//        Trade trade = service.getTradeBySettlementDate(tradeSettlementDate);
+//        return ResponseEntity.ok().body(trade);
 
     @PutMapping("/trade/{id}")
     public ResponseEntity< Trade > updateTrade(@PathVariable(value = "id") Long id,
