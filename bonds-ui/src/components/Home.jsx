@@ -21,6 +21,8 @@ const Home = () => {
   const bondsDate =()=>{
     const bondArray = [];
     const daysDiff = [];
+    const counter = [];
+    const is = [];
     for (let i = 0; i<bonds.length;i++){
       const settlementDate = bonds[i]['tradeSettlementDate'];
       console.log(settlementDate);
@@ -33,10 +35,12 @@ const Home = () => {
       if(daysPast<=5&&daysPast>=-5){
         bondArray.push(formattedDueDate); 
         daysDiff.push(daysPast); 
+        counter.push(bonds[i]['counterParty'])
+        is.push(bonds[i]['isin'])
       }
     }
     //console.log(daysDiff);
-    return [bondArray,daysDiff];
+    return [bondArray,daysDiff,counter,is];
   }
   const numCards = bondsDate()[0].length;
   //const dueDateStr = '08/07/2023';
@@ -57,7 +61,7 @@ const Home = () => {
   }else if (bondsDate()[1][day]>0){
     color = 'red';
   }else{
-    color = 'yellow';
+    color = '#f5e325';
   }
   
   return color;
@@ -102,7 +106,9 @@ useEffect(() => {
               
               <Card.Title >{console.log(bondsDate())}</Card.Title>
               
-              <Card.Text>some info about bonds</Card.Text>
+              <Card.Text>Isin: {bondsDate()[3][idx]}
+              <br/>
+              counter party : {bondsDate()[2][idx]}</Card.Text>
             </Card.Body>
           </Card>
         </Col>
