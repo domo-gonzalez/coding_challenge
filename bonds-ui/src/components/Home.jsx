@@ -8,6 +8,7 @@ import axios from 'axios'
 const Home = () => {
   //const currentDate = new Date();
   //const formattedDate = currentDate.toDateString();
+  
   //testing purposes
   const currentDateStr = '27/09/2021';
   const currentDateParts = currentDateStr.split('/');
@@ -51,9 +52,9 @@ const Home = () => {
 
   const titleBGColor=(day)=>{
     let color;
-    if(bondsDate()[1][day]>3){
+    if(bondsDate()[1][day]<-2){
     color = 'green';
-  }else if (bondsDate()[1][day]<0){
+  }else if (bondsDate()[1][day]>0){
     color = 'red';
   }else{
     color = 'yellow';
